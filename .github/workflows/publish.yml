@@ -19,4 +19,4 @@ jobs:
         run: docker build -t jacarlint/incidentapi:${{ github.sha }} .
 
       - name: Push Docker image
-        run: docker push jacarlint/incidentapi:${{ github.sha }}  # Corregido - Indentación
+        run: docker push jacarlint/incidentapi:${{ github.sha }} 
