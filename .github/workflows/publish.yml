@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to Docker Hub
-        run: docker login -u "${{ secrets.DOCKERHUB_USERNAME}}" -P "${{secrets.DOCKERHUB_PASSWORD}}"
+        run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"  # Corregido - 'p' minúscula para la contraseña
 
       - name: Build Docker image
         run: docker build -t jacarlint/incidentapi:${{ github.sha }} .
 
       - name: Push Docker image
-       run: docker push jacarlint/incidentapi:${{ github.sha }}
+        run: docker push jacarlint/incidentapi:${{ github.sha }}  # Corregido - Indentación
