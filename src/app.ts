@@ -4,6 +4,7 @@ import { mongo } from 'mongoose';
 import { MongoDatabase } from './data/init';
 import { IncidentModel } from './data/models/incident.model';
 import { AppRoutes } from './presentation/routes';
+import { emailJob } from './domain/jobs/email.job';
 
 const app = express();
 
@@ -42,4 +43,5 @@ app.post('/', async (req:Request, res:Response) => {
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
+    emailJob();
 });
