@@ -18,5 +18,11 @@ jobs:
       - name: Build Docker image
         run: docker build -t jacarlint/incidentapi:${{ github.sha }} .
 
+      -name: Tag Latest
+      run: docker tag jacarlint/incidentapi:${{ github.sha }} jacarlint/incidentapi:latest
+
       - name: Push Docker image
-        run: docker push jacarlint/incidentapi:${{ github.sha }} 
+        run: |
+        docker push jacarlint/incidentapi:${{ github.sha }}
+        docker push jacarlint/incidentapi:latest
+
